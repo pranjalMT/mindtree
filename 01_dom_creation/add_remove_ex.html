@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		var count = 0;
+		window.onload = function(){
+			document.querySelector("#addBtn")
+			.addEventListener("click", addBoxHandler);
+			document.querySelector("#removeBtn")
+			.addEventListener("click", removeBoxHandler);
+		};
+		function addBoxHandler(){
+			var elm = document.createElement("div");
+			var r = Math.round(Math.random()*255);
+			var g = Math.round(Math.random()*255);
+			var b = Math.round(Math.random()*255);
+			elm.style.lineHeight = "100px";
+			elm.style.verticalAlign = "middle";
+			elm.style.fontFamily = "arial";
+			elm.style.width = "100px";
+			elm.style.height = "100px";
+			elm.style.float = "left";
+			elm.style.margin = "10px";
+			elm.style.color = "#333";
+			elm.style.fontSize = "40px";
+			elm.style.fontWeight = "bold";
+			elm.style.textAlign = "center";
+			elm.style.backgroundColor = "rgb("+r+","+g+","+b+")";
+			elm.innerHTML = ++count;
+			// elm.setAttribute("style","width:100px; height:100px; float:left; margin:5px; background-color:rgb("+r+","+g+","+b+")");
+			document.querySelector("#boxer").appendChild(elm);
+		}
+		function removeBoxHandler(){
+			var elm = document.querySelector("#boxer").lastChild;
+			if(elm){
+			document.querySelector("#boxer").removeChild(elm);
+			count--;
+			}else{
+				alert("nothing to remove")
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="addBtn">add box</button>
+	<button id="removeBtn">remove box</button>
+	<hr/>
+	<div id="boxer"></div>
+</body>
+</html>

@@ -1,1 +1,3 @@
-# mindtree
+# Mindtree
+
+AMD
