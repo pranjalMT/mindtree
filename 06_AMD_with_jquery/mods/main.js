@@ -1,12 +1,12 @@
 require.config({
 	paths : {
-		jquery : [
+		jQuery : [
 				"lib/jquery-1.11.3"
 				]
 	}
 });
 
-require(["jquery","mods/add","mods/remove"],function($,add,remove){
+require(["jQuery","mods/add","mods/remove"],function($,add,remove){
 	$("#addBtn").on("click", add.fun);
 	$("#removeBtn").on("click", remove.fun);
 });

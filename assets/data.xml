@@ -1,0 +1,69 @@
+<heros>
+	<hero>
+		<title>Batman</title>
+		<fName>Bruce</fName>
+		<lName>Wayne</lName>
+		<phone>123456789</phone>
+		<photo>images/batman.jpg</photo>
+		<hdetails>
+			Batman Details comes here
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</hdetails>
+	</hero>
+	<hero>
+		<title>Superman</title>
+		<fName>Clark</fName>
+		<lName>kent</lName>
+		<phone>456789123</phone>
+		<photo>images/superman.jpg</photo>
+		<hdetails>
+			Superman Details comes here
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</hdetails>
+	</hero>
+	<hero>
+		<title>Spiderman</title>
+		<fName>Peter</fName>
+		<lName>Parker</lName>
+		<phone>567891234</phone>
+		<photo>images/spiderman.jpg</photo>
+		<hdetails>
+			Spiderman Details comes here
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</hdetails>
+	</hero>
+	<hero>
+		<title>Ironman</title>
+		<fName>Tony</fName>
+		<lName>Stark</lName>
+		<phone>99999999</phone>
+		<photo>images/ironman.jpg</photo>
+		<hdetails>
+			Ironman Details comes here
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</hdetails>
+	</hero>
+	<hero>
+		<title>Phantom</title>
+		<fName>Kit</fName>
+		<lName>Walker</lName>
+		<phone>891234567</phone>
+		<photo>images/phantom.jpg</photo>
+		<hdetails>
+			Phantom Details comes here
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</hdetails>
+	</hero>
+	<hero>
+		<title>Rajani</title>
+		<fName>Rajani</fName>
+		<lName>kanth</lName>
+		<phone>1</phone>
+		<photo>images/rajani.jpg</photo>
+		<hdetails>
+			Rajani Details comes here
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</hdetails>
+	</hero>
+
+</heros>
