@@ -1,4 +1,3 @@
-require(["walk","run"],function(walk,run){
-	console.log(walk);
+require(["run"],function(run){
 	console.log(run);
 });
