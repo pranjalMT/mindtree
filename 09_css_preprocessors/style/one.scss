@@ -1,0 +1,31 @@
+$bgCol : gray;
+$fs : 24px;
+$mes : "Read More";
+$photo : "../images/rajani.jpg";
+$bdr : $fs/2 dotted darken($bgCol, 40%);
+
+body{
+  background-color : $bgCol;
+}
+
+h1{
+  color : lighten($bgCol, 40%);
+  font-family : arial;
+  text-align : center;
+  font-size : $fs;
+  background-color : darken($bgCol, 40%)
+}
+h2{
+  color : lighten($bgCol, 40%);
+  font-family : arial;
+  text-align : center;
+  font-size : $fs+10;
+  background-color : darken($bgCol, 40%)
+}
+
+p{
+  border : $bdr;
+  background-color : orange;
+  width : 200px;
+  height : 200px;
+}

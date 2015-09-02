@@ -1,0 +1,32 @@
+.box1 {
+  width: 400px;
+  height: 100px;
+  background-color: #9FA3EA;
+  border: 5px double #333333;
+  padding: 10px;
+  margin: 10px;
+}
+.box2 {
+  width: 600px;
+  height: 100px;
+  background-color: #7D81C4;
+  border: 10px ridge blue;
+  padding: 10px;
+  margin: 10px;
+}
+.box3 {
+  width: 800px;
+  height: 100px;
+  background-color: #545793;
+  border: 2px dotted silver;
+  padding: 10px;
+  margin: 10px;
+}
+.box4 {
+  width: 1000px;
+  height: 100px;
+  background-color: #25274C;
+  border: 10px dashed orange;
+  padding: 10px;
+  margin: 10px;
+}
