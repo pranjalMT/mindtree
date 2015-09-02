@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Ajax</title>
+
+	<script type="mindtree/template" id="temp">
+		<div class="boxer">
+		<h1>{{htitle}}</h1>
+		<h2><span>{{fname}}</span> <span>{{lname}}</span></h2>
+		<img src="{{himg}}" />
+		<h2>Call : <span>{{phone}}</span></h2>
+		<div class="data">{{detail}}</div>
+	</script>
+</div>
+	
+	
+	<style>
+		.boxer{
+			width: 200px;
+			height: 450px;
+			background-color: #333;
+			padding: 5px;
+			box-sizing: border-box;
+			float: left;
+			margin: 10px;
+		}
+		.boxer h1{
+			background-color: #E9EACC;
+			color: #333;
+			margin: 0px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer h2{
+			background-color: #575934;
+			color: #E9EACC;
+			margin: 0px;
+			height: 30px;
+			font-size : 16px;
+			text-align: center;
+			line-height: 30px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer img{
+			display: block;
+			max-width: 100%;
+		}
+		.boxer .data{
+			width: 190px;
+			height: 150px;
+			box-sizing: border-box;
+			overflow: auto;
+			background-color: #E9EACC;
+			color: #333;
+			text-align: justify;
+			font-family: Arial;
+		}
+	</style>
+	<script src="lib/jquery-1.11.3.js"></script>
+	<script>
+	var promise = null;
+		$(function(){
+			$("button").on("click", function(){
+				//-----------------------------
+				  promise = $.ajax("data/data.json");
+				  	
+				  promise.done(function(r, s, xhr){
+						for(var i = 0; i < r.heros.length; i++){
+							// $("#box").append(r.heros[i].title+"<hr/>");
+							
+							var title = r.heros[i].title;
+							var fn = r.heros[i].fName;
+							var ln = r.heros[i].lName;
+							var ph = r.heros[i].phone;
+							var img = r.heros[i].photo;
+							var detail = r.heros[i].hdetails;
+							
+							var temp = $("#temp").html()
+										.replace("{{htitle}}",title)
+										.replace("{{fname}}",fn)
+										.replace("{{lname}}",ln)
+										.replace("{{himg}}",img)
+										.replace("{{phone}}",ph)
+										.replace("{{detail}}",detail);
+							$("#box").append(temp);
+						}
+					})
+				  promise.fail(function(jqxhr, status, err){
+				  	
+				  	})
+				//-----------------------------
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>Get Data</button>
+	<div id="box"></div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Ajax</title>
+
+	<script type="mindtree/template" id="temp">
+		<div class="boxer">
+		<h1>{{htitle}}</h1>
+		<h2><span>{{fname}}</span> <span>{{lname}}</span></h2>
+		<img src="{{himg}}" />
+		<h2>Call : <span>{{phone}}</span></h2>
+		<div class="data">{{detail}}</div>
+	</script>
+	
+</div>
+	
+	
+	<style>
+		.boxer{
+			width: 200px;
+			height: 450px;
+			background-color: #333;
+			padding: 5px;
+			box-sizing: border-box;
+			float: left;
+			margin: 10px;
+		}
+		.boxer h1{
+			background-color: #E9EACC;
+			color: #333;
+			margin: 0px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer h2{
+			background-color: #575934;
+			color: #E9EACC;
+			margin: 0px;
+			height: 30px;
+			font-size : 16px;
+			text-align: center;
+			line-height: 30px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer img{
+			display: block;
+			max-width: 100%;
+		}
+		.boxer .data{
+			width: 190px;
+			height: 150px;
+			box-sizing: border-box;
+			overflow: auto;
+			background-color: #E9EACC;
+			color: #333;
+			text-align: justify;
+			font-family: Arial;
+		}
+	</style>
+	<script src="lib/jquery-1.11.3.js"></script>
+	<script>
+	var promise = null;
+		$(function(){
+			$("button").on("click", function(){
+				//-----------------------------
+				  promise = $.ajax("data/data.xml");
+				  
+				  promise.done(function(result, status, jqxhr){
+						var data = $(result);
+						// var str = "<table border='0' cellspacing='5' cellpadding='5'><tr><th>Title</th><th>First</th><th>Last</th><th>Phone</th><th>Photo</th><th>Details</th></tr>";
+						data.find("hero").each(function(){
+							var val = $(this);
+							var title = val.find('title').text();
+							var fn = val.find('fName').text();
+							var ln = val.find('lName').text();
+							var ph = val.find('phone').text();
+							var img = val.find('photo').text();
+							var detail = val.find('hdetails').text();
+							// str+="<tr><td>"+title+"</td><td>"+fn+"</td><td>"+ln+"</td><td>"+ph+"</td><td><img src='"+img+"' width='50'/></td><td>"+detail+"</td></tr>";
+							// $("body").append("<div class='boxer'><h1>"+title+"</h1><h2><span>"+fn+"</span> <span>"+ln+"</span></h2><img src='"+img+"' /><h2>Call : <span>"+ph+"</span></h2><div class='data'>"+detail+"</div></div>")
+							
+							var temp = $("#temp")
+										.html()
+										.replace("{{htitle}}",title)
+										.replace("{{fname}}",fn)
+										.replace("{{lname}}",ln)
+										.replace("{{himg}}",img)
+										.replace("{{phone}}",ph)
+										.replace("{{detail}}",detail);
+							
+							$("body").append(temp);
+						})
+						// str+="</table>";
+						// $("body").append(str);
+					})
+				  promise.fail(function(jqxhr, status, err){
+				  	
+				  })
+				//-----------------------------
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>Get Data</button>
+	<div id="box"></div>
+
+</body>
+</html>
