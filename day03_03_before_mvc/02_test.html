@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery-1.11.3.js"></script>
+	<script src="com/mindtree/app.js"></script>
+	<script src="com/mindtree/controller/controller.js"></script>
+	<script src="com/mindtree/model/model.js"></script>
+	<script src="com/mindtree/view/view.js"></script>
+	<script>
+		$(function(){
+			var elm = $(mindtree.view.createBtn())
+					.text(mindtree.model.heroName)
+					.attr("id",mindtree.model.heroCode)
+					.on("click",mindtree.controller.clickHandler);
+			$("body").append(elm)
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

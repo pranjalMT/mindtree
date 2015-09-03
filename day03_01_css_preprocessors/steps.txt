@@ -1,0 +1,81 @@
+STEP 1
+//=======================================
+$bgCol : gray;
+
+body{
+  background-color : $bgCol;
+}
+
+h1{
+  color : lighten($bgCol, 40%);
+  font-family : arial;
+  text-align : center;
+  background-color : darken($bgCol, 40%)
+}
+//=======================================
+
+STEP 2
+//=======================================
+$bgCol : gray;
+$fs : 24px;
+$mes : "Read More";
+$photo : "../images/rajani.jpg";
+$bdr : $fs/2 dotted darken($bgCol, 40%);
+
+body{
+  background-color : $bgCol;
+}
+
+h1{
+  color : lighten($bgCol, 40%);
+  font-family : arial;
+  text-align : center;
+  font-size : $fs;
+  background-color : darken($bgCol, 40%)
+}
+h2{
+  color : lighten($bgCol, 40%);
+  font-family : arial;
+  text-align : center;
+  font-size : $fs+10;
+  background-color : darken($bgCol, 40%)
+}
+
+p{
+  border : $bdr;
+  background-color : orange;
+  width : 200px;
+  height : 200px;
+}
+//=======================================
+
+STEP 3
+//=======================================
+.outerBox{
+  width: 400px;
+  height: 200px;
+  margin: 50px auto;
+  background-color: #333;
+  border : 1px solid transparent;
+  
+  .innerBox{
+    width: 200px;
+    height: 100px;
+    margin: 50px auto;
+    background-color: #666;
+    line-height: 100px;
+    vertical-align: middle;
+    font-family: Verdana;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    
+      &:hover{
+      background-color: orange;
+      }
+  }
+
+
+}
+
+//=======================================

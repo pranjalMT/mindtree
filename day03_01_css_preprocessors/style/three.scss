@@ -1,0 +1,26 @@
+@import "_partial";
+
+.box1{
+  width : 400px;
+  height : 100px;
+  background-color : yellow;
+  @include mindtreeBorder(5px,double,#333333);
+}
+.box2{
+  width : 600px;
+  height : 100px;
+  background-color : orange;
+  @include mindtreeBorder(10px,ridge,blue);
+}
+.box3{
+  width : 800px;
+  height : 100px;
+  background-color : red;
+  @include mindtreeBorder(2px,dotted,silver);
+}
+.box4{
+  width : 1000px;
+  height : 100px;
+  background-color : maroon;
+  @include mindtreeBorder(10px,dashed,orange);
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var btns = document.getElementsByTagName("button");
+			if(document.addEventListener){
+				for(var i = 0; i < btns.length; i++){
+					btns[i].addEventListener("click",clickHandler);
+				}
+			}else{
+				for(var i = 0; i < btns.length; i++){
+					btns[i].attachEvent("onclick",clickHandlerIE);
+				}
+			}
+		}
+		function clickHandler(evt){
+			alert("you clicked "+evt.target.id);
+		}
+		function clickHandlerIE(){
+			var evt = window.event;
+			alert("you clicked "+evt.srcElement.id);
+		}
+		function removeClickHandler(event){
+		}
+	</script>
+</head>
+<body>
+	<button id="btn1" data-code="1001">button 1</button>
+	<button id="btn2" data-code="1002">button 2</button>
+	<button id="btn3" data-code="1003">button 3</button>
+	<button id="btn4" data-code="1004">button 4</button>
+	<button id="btn5" data-code="1005">button 5</button>
+	<hr/>
+	<button id="btn6" data-code="1005">button 5</button>
+</body>
+</html>

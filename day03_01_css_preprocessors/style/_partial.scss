@@ -1,0 +1,5 @@
+@mixin mindtreeBorder($bs, $bst, $bc){
+  border : $bs $bst $bc;
+  padding : 10px;
+  margin : 10px;
+}

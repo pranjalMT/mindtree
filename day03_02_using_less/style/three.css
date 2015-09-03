@@ -1,0 +1,22 @@
+.outerBox {
+  width: 400px;
+  height: 200px;
+  margin: 50px auto;
+  background-color: #333;
+  border: 1px solid transparent;
+}
+.outerBox .innerBox {
+  width: 200px;
+  height: 100px;
+  margin: 50px auto;
+  background-color: #666;
+  line-height: 100px;
+  vertical-align: middle;
+  font-family: Verdana;
+  font-size: 36px;
+  text-align: center;
+  font-weight: bold;
+}
+.outerBox .innerBox:hover {
+  background-color: orange;
+}
