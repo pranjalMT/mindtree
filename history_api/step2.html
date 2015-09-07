@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>History Usage</title>
+	<style>
+		a:link{
+			font: bold 20px arial;
+		}
+		article{
+			width: 250px;
+			height: 250px;
+		}
+		article h1{
+			text-align: center;
+			font: bold 24px arial;
+			color: gray;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			document.getElementById("rajBtn").addEventListener("click", rajHandler);
+			document.getElementById("batBtn").addEventListener("click", batHandler);
+			document.getElementById("supBtn").addEventListener("click", supHandler);
+			document.getElementById("heroTitle").innerHTML = "rajani";
+			document.getElementById("heroPhoto").src = "images/rajani.jpg";
+		}
+		function rajHandler(event){
+			event.preventDefault();
+			document.getElementById("heroTitle").innerHTML = event.target.innerHTML;
+			document.getElementById("heroPhoto").src = event.target.href;
+		}
+		function batHandler(event){
+			event.preventDefault();
+			document.getElementById("heroTitle").innerHTML = event.target.innerHTML;
+			document.getElementById("heroPhoto").src = event.target.href;
+		}
+		function supHandler(event){
+			event.preventDefault();
+			document.getElementById("heroTitle").innerHTML = event.target.innerHTML;
+			document.getElementById("heroPhoto").src = event.target.href;
+		}
+	</script>
+</head>
+<body>
+	<a href="images/rajani.jpg" id="rajBtn">rajani</a> | 
+	<a href="images/batman.jpg" id="batBtn">batman</a> | 
+	<a href="images/superman.jpg" id="supBtn">superman</a>
+	<article>
+		<h1 id="heroTitle"></h1>
+		<img id="heroPhoto" />
+	</article>
+</body>
+</html>

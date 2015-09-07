@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>History Usage</title>
+	<style>
+		a:link{
+			font: bold 20px arial;
+		}
+		article{
+			width: 250px;
+			height: 250px;
+		}
+		article h1{
+			text-align: center;
+			font: bold 24px arial;
+			color: gray;
+		}
+	</style>
+	<script>
+		window.addEventListener("popstate", stateChangeHandler)
+		window.onload = function(){
+			document.getElementById("rajBtn").addEventListener("click", clickHandler);
+			document.getElementById("batBtn").addEventListener("click", clickHandler);
+			document.getElementById("supBtn").addEventListener("click", clickHandler);
+		}
+		function clickHandler(event){
+			event.preventDefault();
+			document.getElementById("heroTitle").innerHTML = event.target.innerHTML;
+			document.getElementById("heroPhoto").src = event.target.href;
+			var data = {
+				dataTitle : event.target.innerHTML,
+				dataUrl : event.target.href
+			}
+			history.pushState(data, data.dataTitle, data.dataTitle);
+		}
+		function stateChangeHandler(event){
+			console.log(event.state);
+			document.getElementById("heroTitle").innerHTML = event.state.dataTitle;
+			document.getElementById("heroPhoto").src = event.state.dataUrl;
+		}
+	</script>
+</head>
+<body>
+	<a href="images/rajani.jpg" id="rajBtn">rajani</a> | 
+	<a href="images/batman.jpg" id="batBtn">batman</a> | 
+	<a href="images/superman.jpg" id="supBtn">superman</a>
+	<article>
+		<h1 id="heroTitle"></h1>
+		<img id="heroPhoto" />
+	</article>
+</body>
+</html>
