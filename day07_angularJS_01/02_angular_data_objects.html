@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>AngularJS Hello World</title>
+	<script src="lib/angular1.4.5.js"></script>
+	<style>
+		.mtClasstrue{
+			background-color: #AF2F79
+		}
+		.mtClassfalse{
+			background-color: #77128A
+		}
+	</style>
+</head>
+<body ng-app ng-init="data = {
+			name : 'Mindtree',
+			count : 100,
+			rajaniKnows : false,
+			colClass : 'mtClass'
+		 			}" >
+
+
+<h1 style="width : {{data.count*2}}px" class="{{data.colClass+data.rajaniKnows}}" ng-show="data.rajaniKnows">Rajani is aware of {{data.name}}</h1>
+<h1 style="width : {{data.count*2}}px" class="{{data.colClass+data.rajaniKnows}}"  ng-hide="data.rajaniKnows">Rajani is not aware of {{data.name}}</h1>
+<input type="range" min="10" max="100" ng-model="data.count" />
+<input type="checkbox" ng-model="data.rajaniKnows" />
+</body>
+</html>

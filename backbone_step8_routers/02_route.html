@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Routers</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MyRouter = Backbone.Router.extend({
+			routes: {
+				"" : "homeFun",
+				"mumbai/locality/:block" : "bangaloreFun",
+				"pune" : "puneFun",
+				"chennai" : "chennaiFun",
+			},
+			homeFun : function(){
+				console.log("welcome to home page")
+			},
+			bangaloreFun : function(locality, block){
+				console.log("welcome to Bangalore are you from : "+locality+" block name : "+block)
+			},
+			puneFun : function(){
+				console.log("welcome to pune")
+			},
+			chennaiFun : function(){
+				console.log("welcome to chennai")
+			}
+		})
+		var subRouter = new MyRouter();
+		Backbone.history.start();
+	</script>
+</head>
+<body>
+</body>
+</html>

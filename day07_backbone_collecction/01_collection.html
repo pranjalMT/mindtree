@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.boxer{
+			width: 200px;
+			height: 350px;
+			background-color: #333;
+			padding: 5px;
+			box-sizing: border-box;
+			float: left;
+			margin: 10px;
+		}
+		.boxer h1{
+			background-color: #E9EACC;
+			color: #333;
+			margin: 0px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer h2{
+			background-color: #575934;
+			color: #E9EACC;
+			margin: 0px;
+			height: 30px;
+			font-size : 16px;
+			text-align: center;
+			line-height: 30px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer img{
+			display: block;
+			max-width: 100%;
+		}
+	</style>
+	<script type="mindtree/template" id="temp">
+		<div class='boxer'>
+			<h1> {{ title }} </h1>
+			<h2><span>{{ fName }}</span> <span><%= lName %></span></h2>
+			<img src='{{photo}}' />
+			<h2>Call : <span>{{phone}}</span></h2>
+			<div class='data'> {{details}} </div>
+		</div>
+	</script>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var Hero = Backbone.Model.extend({});
+		var HeroView = Backbone.View.extend({
+			render : function(){
+				this.$el.html(this.template(this.model.toJSON()));
+				console.log("view rendered");
+				return this;
+			},
+			initialize : function(){
+				console.log("view initialized");
+			},
+			template : _.template("<div class='boxer'><h1> <%= title %> </h1><h2><span><%= fName %></span> <span><%= lName %></span></h2><img src='<%= photo %>' /></div>")
+		
+		});
+		//==================================
+		var hero1 = new Hero({
+			title : "Superman",
+			fName : "Clark",
+			lName : "Kent",
+			photo : "images/superman.jpg"
+		});
+		var hero2 = new Hero({
+			title : "Spiderman",
+			fName : "Peter",
+			lName : "Parker",
+			photo : "images/spiderman.jpg"
+		});
+		var hero3 = new Hero({
+			title : "Ironman",
+			fName : "Tony",
+			lName : "Stark",
+			photo : "images/ironman.jpg"
+		});
+		var hero4 = new Hero({
+			title : "Batman",
+			fName : "Bruce",
+			lName : "Wayne",
+			photo : "images/batman.jpg"
+		});
+		//==================================
+		var heros = [
+		// hero1,hero2,hero3
+			hero1
+		];
+		heros.push(hero2);
+		heros.push(hero3);
+		heros.push(hero4);
+		console.log(heros.length);
+		
+		$(function(){
+			$("button:eq(0)").on("click", function(){
+				$("body").append(new HeroView({model : heros[0]}).render().el);
+			})
+			$("button:eq(1)").on("click", function(){
+				$("body").append(new HeroView({model : heros[1]}).render().el);
+			})
+			$("button:eq(2)").on("click", function(){
+				$("body").append(new HeroView({model : heros[2]}).render().el);
+			})
+			$("button:eq(3)").on("click", function(){
+				$("body").append(new HeroView({model : heros[3]}).render().el);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>Add Superman</button>
+	<button>Add Spiderman</button>
+	<button>Add Ironman</button>
+	<button>Add Batman</button>
+</body>
+</html>

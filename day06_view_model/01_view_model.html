@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MyMod = Backbone.Model.extend({});
+		var MyVue = Backbone.View.extend({
+			render : function(){
+				this.el.innerHTML = this.model.get("val");
+				console.log("view rendered");
+				return this;
+			},
+			initialize : function(){
+				console.log("view initialized");
+			}
+		});
+		//=============================================
+		var mymod = new MyMod({
+			val : "Hello from my Model"
+		});
+		var myvue = new MyVue({
+			model : mymod
+		});
+		//=============================================
+		$(function(){
+			$("button").on("click", function(){
+				$("body").append(myvue.render().el);
+				// $("body").append(myvue.render().$el);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>Create View</button>
+</body>
+</html>

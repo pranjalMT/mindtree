@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Using Switch</title>
+	<script src="lib/angular1.4.5.js"></script>
+</head>
+<body ng-app ng-init="heros = [
+				{hName : 'Batman',         	hPhoto : 'images/batman.jpg'},
+				{hName : 'Superman',     	hPhoto : 'images/superman.jpg'},
+				{hName : 'Ironman',     	hPhoto : 'images/ironman.jpg'},
+				{hName : 'Rajani',         	hPhoto : 'images/rajani.jpg'},
+				{hName : 'Spiderman',       hPhoto : 'images/spiderman.jpg'},
+				{hName : 'Phantom',     	hPhoto : 'images/phantom.jpg'},
+				{hName : 'Batman',         	hPhoto : 'images/batman2.jpg'},
+				{hName : 'Robin',     		hPhoto : 'images/robin.jpg'}
+				    ];
+				heroCount = 2 ;
+				offset = 0;
+				 ">
+	<table border="1">
+		<tr ng-repeat="hero in heros | limitTo : heroCount : offset  track by hero.hPhoto">
+			<td>sl # {{$index+1+offset}}</td> 
+			<td>
+				<label ng-show="$first" style="color: red">First</label>
+				<label ng-show="$last" style="color: blue">Last</label>
+				<label ng-show="$middle" style="color: green">Center</label>
+				<label ng-show="$even" style="color: orange">Even</label>
+				<label ng-show="$odd" style="color: gray">Odd</label>
+				<label>{{hero.hName}}</label>
+			</td>
+			<td><img src="{{hero.hPhoto}}" width="40" align="absmiddle" /></td>
+		</tr>
+	</table>
+	<button ng-hide="offset < 1" ng-click="offset=offset-2">back</button>
+	<button ng-hide="offset > 5" ng-click="offset=offset+2">next</button>
+</body>
+</html>

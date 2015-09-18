@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var HeadingModel = Backbone.Model.extend({});
+		var HeadingView = Backbone.View.extend({
+		    tagName: 'li',
+		    render: function () {
+		      this.$el.html(this.model.get('content'));
+		      return this;
+		    }    
+		});
+		var hm = new HeadingModel({
+			content : "Welcome to your life"
+		});
+		var hv = new HeadingView({
+		    model: hm
+		});
+		$(function(){
+			$("body").append(hv.render().el);
+			//================================
+			$("#removeBtn").click(function(){
+				hv.remove();
+			})
+		})
+	</script>
+</head>
+<body>
+ 	<button id="removeBtn"> Remove View </button>
+</body>
+</html>

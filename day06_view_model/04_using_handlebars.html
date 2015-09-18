@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.boxer{
+			width: 200px;
+			height: 450px;
+			background-color: #333;
+			padding: 5px;
+			box-sizing: border-box;
+			float: left;
+			margin: 10px;
+		}
+		.boxer h1{
+			background-color: #E9EACC;
+			color: #333;
+			margin: 0px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer h2{
+			background-color: #575934;
+			color: #E9EACC;
+			margin: 0px;
+			height: 30px;
+			font-size : 16px;
+			text-align: center;
+			line-height: 30px;
+			vertical-align: middle;
+			font-family: Arial;
+		}
+		.boxer img{
+			display: block;
+			max-width: 100%;
+		}
+		.boxer .data{
+			width: 190px;
+			height: 150px;
+			box-sizing: border-box;
+			overflow: auto;
+			background-color: #E9EACC;
+			color: #333;
+			text-align: justify;
+			font-family: Arial;
+		}
+	</style>
+	<script type="mindtree/template" id="temp">
+		<div class='boxer'>
+			<h1> {{ title }} </h1>
+			<h2><span>{{ fName }}</span> <span><%= lName %></span></h2>
+			<img src='{{photo}}' />
+			<h2>Call : <span>{{phone}}</span></h2>
+			<div class='data'> {{details}} </div>
+		</div>
+	</script>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script src="lib/handlebars-v4.0.2.js"></script>
+	<script>
+		var Hero = Backbone.Model.extend({});
+		var HeroView = Backbone.View.extend({
+			render : function(){
+				this.$el.html(this.template(this.model.toJSON()));
+				console.log("view rendered");
+				return this;
+			},
+			initialize : function(){
+				console.log("view initialized");
+				
+			},
+			// template : _.template("<div class='boxer'><h1> <%= title %> </h1><h2><span><%= fName %></span> <span><%= lName %></span></h2><img src='<%= photo %>' /><h2>Call : <span><%= phone %> </span></h2><div class='data'><%= details %></div></div>")
+			template : Handlebars.compile($("#temp").html())
+		});
+		//=============================================
+		var hero = new Hero({});
+		hero.set({
+			title:"Batman",
+			fName:"Bruce",
+			lName:"Wayne",
+			phone:"987654321",
+			photo:"images/batman.jpg",
+			details:"Batman details come here"
+		});
+		
+		var hView = new HeroView({
+			model : hero
+		});
+		//=============================================
+		$(function(){
+			$("button").on("click", function(){
+				$("body").append(hView.render().el);
+				// $("body").append(myvue.render().$el);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>Create View</button>
+
+</body>
+</html>

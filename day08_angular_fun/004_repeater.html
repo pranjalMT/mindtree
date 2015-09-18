@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Using Switch</title>
+	<script src="lib/angular1.4.5.js"></script>
+</head>
+<body ng-app ng-init="heros = ['Batman', 'Superman' ,'Ironman', 'Rajani', 'Batman']">
+	<ul style="list-style: none">
+		<li ng-repeat="hero in heros track by $index"> {{$index+1 +" ~ " +hero}} </li>
+	</ul>
+</body>
+</html>

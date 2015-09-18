@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Angular Collections</title>
+	<script src="lib/angular1.4.5.js"></script>
+</head>
+<!-- <body data-ng-app data-ng-init="heros = ['Batman', 'Superman', 'Ironman', 'Spiderman', 'Phantom', 'Rajani']">
+<ul>
+	<li data-ng-repeat="hero in heros">{{hero}}</li>
+</ul>
+</body> -->
+
+<body data-ng-app data-ng-init="heros = [
+		{title : 'Batman', photo : 'images/batman.jpg'},
+		{title : 'Ironman', photo : 'images/ironman.jpg'},
+		{title : 'Spiderman', photo : 'images/spiderman.jpg'},
+		{title : 'Phantom', photo : 'images/phantom.jpg'},
+		{title : 'Rajani', photo : 'images/rajani.jpg'}
+]">
+</body>
+<!--ul>
+	<li data-ng-repeat="hero in heros">
+		<img src="{{hero.photo}}" width="40" align="absmiddle" />
+		<label>{{hero.title}}</label>
+	</li>
+</ul-->
+<table border="1">
+	<tr data-ng-repeat="hero in heros">
+		<td><img src="{{hero.photo}}" width="40" align="absmiddle" /></td>
+		<td><label>{{hero.title}}</label></td>
+	</tr>
+</table>
+</html>

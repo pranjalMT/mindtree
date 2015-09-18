@@ -1,0 +1,66 @@
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+
+app.use(express.static(__dirname));
+app.use(bodyParser.json());
+
+var id = 0;
+var heros = {};
+
+app.get("*",function(req,res){
+	res.sendFile(__dirname+"index.html");
+});
+
+app.listen(3000);
+console.log("server started at 3000");
+
+//============================================================= 
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+
+app.use(express.static(__dirname));
+app.use(bodyParser.json());
+
+var id = 0;
+var heros = {};
+
+app.post("/heros",function(req,res){		// added in step 2
+	var hero = req.body; 					// added in step 2
+});											// added in step 2
+
+app.get("*",function(req,res){
+	res.sendFile(__dirname+"index.html");
+});
+
+app.listen(3000);
+console.log("server started at 3000");
+
+//============================================================= 
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+
+app.use(express.static(__dirname));
+app.use(bodyParser.json());
+
+var id = 0;
+var heros = {};
+
+app.post("/heros",function(req,res){		
+	var hero = req.body; 
+	hero.id = ++id;
+	heros[hero.id] = hero;
+	res.json(hero);
+						
+});											
+
+app.get("*",function(req,res){
+	res.sendFile(__dirname+"index.html");
+});
+
+app.listen(3000);
+console.log("server started at 3000");

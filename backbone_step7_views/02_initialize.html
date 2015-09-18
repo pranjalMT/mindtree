@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<style>
+		.boxer{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MyView = Backbone.View.extend({
+			className : "boxer"
+			,
+			initialize : function(){
+				console.log("this view was created");
+			}
+		});
+		function createView(){
+			var view = new MyView();
+			$("#display").append(view.el);
+		};
+		$(function(){
+			$("#btn").on("click",function(){
+				createView();
+			});
+		});
+	</script>
+</head>
+<body>
+	<button id="btn">click me</button>
+	<div id="display"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<style>
+		div{
+			background-color: orange;
+			width: 200px;
+			height: 200px;
+			padding:5px;
+			margin: auto;
+		}
+	</style>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MainView = Backbone.View.extend({
+				events: {
+				click: "clickHandler"
+				   },
+				clickHandler: function() {
+			        console.log('handleClick was triggered');
+			   }
+		});
+		var subView = new MainView();
+		
+		$(function(){
+			$("body").append(subView.render().el);
+		});
+		
+	</script>
+</head>
+<body>
+ 	
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>AngularJS Hello World</title>
+	<script src="lib/angular1.4.5.js"></script>
+</head>
+<!--body ng-app ng-init="comp = 'Mindtree'" >
+	<input value="{{comp}}"/>
+</body-->
+<body ng-app ng-init="comp = 'Mindtree'" >
+	<input ng-model="comp"/>
+	<hr/>
+	<input value="{{comp}}"/> <br/>
+	<input value="{{comp.length}}"/> <br/>
+	<input value="{{comp|uppercase}}"/> <br/>
+	<input value="{{comp|lowercase}}"/> <br/>
+	<input value="{{comp.length + 5}}"/> <br/>
+	<input value="{{'Mr.' +comp}}"/> <br/>
+
+</body>
+</html>

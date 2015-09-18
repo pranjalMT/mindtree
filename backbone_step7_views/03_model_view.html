@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<style>
+		div{
+			width: 200px;
+			height: 50px;
+			background-color: yellow;
+			float: left;
+			margin: 10px;
+			text-align: center;
+			padding-top: 20px;
+		}
+	</style>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+<script>
+		var MyModel = Backbone.Model.extend({});
+		var MyView = Backbone.View.extend({
+			render : function(){
+				console.log("rendered");
+				this.$el.html(this.model.get("data"));
+				return this;
+			},
+			initialize : function(){
+				console.log("initialized");
+			}
+		});
+		
+		var subModel = new MyModel({
+			"data" : "Welcome to your life"
+		});
+		var subView1 = new MyView({
+			model : subModel
+		});
+		// create another view to get another box
+		
+		$(function(){
+			// $("body").append(subView1.render().el); // only one of them will work
+			// $("body").append(subView1.render().$el); // if the view already exists it wont render again
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

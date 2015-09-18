@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Using Switch</title>
+	<script src="lib/angular1.4.5.js"></script>
+</head>
+<body ng-app>
+	<label>Show only new arrival : <input type="checkbox" ng-model="newArrival" /></label>
+	<ul ng-switch on="newArrival">
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-when="true">New Item</li>
+		<li ng-switch-when="true">New Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-when="true">New Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-when="true">New Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-default>Default Item</li>
+		<li ng-switch-when="false">Old Item</li>
+		<li ng-switch-when="true">New Item</li>
+	</ul>
+</body>
+</html>

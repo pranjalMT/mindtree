@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+	var RefreshingView = Backbone.View.extend({
+		    initialize: function () {
+		        this.model.on('change', function () {
+		            this.render();
+		           console.log(this)
+		        },this);
+		    },
+		    render: function () {
+		        this.$el.html(this.model.get('text'));
+		    }
+		});
+		
+		var m = new Backbone.Model({text: new Date().toString()});
+		
+		$(function(){
+			var v = new RefreshingView({model: m, el: 'body'});
+			v.render();
+			setInterval(function () {
+			    m.set({text: new Date().toString()});
+			}, 1000);
+		})
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

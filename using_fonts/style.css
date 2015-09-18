@@ -1,0 +1,9 @@
+ @font-face {
+                font-family: myriad;
+                src:local("ostrich-regular-webfont");
+                src: url('fonts/ostrich-regular-webfont.eot'); /* IE9 Compat Modes */
+                src: url('fonts/ostrich-regular-webfont.eot') , /* IE6-IE8 */
+                     url('fonts/ostrich-regular-webfont.woff'), /* Modern Browsers */
+                     url('fonts/ostrich-regular-webfont.ttf'), /* Safari, Android, iOS */
+                     url('fonts/ostrich-regular-webfont.svg') ; /* Legacy iOS */
+                }

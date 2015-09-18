@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Routes Introduction</title>
+	<script src="/lib/jquery.js"></script>
+	<script src="/lib/underscore.js"></script>
+	<script src="/lib/backbone.js"></script>
+	<script>
+		var MyFirstRouter = Backbone.Router.extend({
+			routes : {
+				"" : "homeFun",
+				"mindtree": "mindtreeFun",
+				"bangalore": "bangaloreFun",
+				"product/:name/*qyt": "productFun"
+			},
+			homeFun : function(){
+				alert("you reached home");
+			},
+			mindtreeFun : function(){
+				alert("you reached mindtree");
+			},
+			bangaloreFun : function(){
+				alert("you reached bangalore");
+			},
+			productFun : function(name,qty){
+				console.log(name);
+				if(qty===null){
+					qty = 0;
+				}
+				alert("you reached our product : "+name+"'s page "+"and you want to buy : "+qty+" of it");
+			}
+		});
+		var subRouter = new MyFirstRouter();
+		subRouter.on("mindtree",function(){
+			alert("mindtree")
+		})
+		Backbone.history.start({pushState : true});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

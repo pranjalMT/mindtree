@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+	/*
+		var obj1 = new Object();
+		var obj2 = {};
+		var obj3 =Object.create(null);
+		
+		
+		console.log(typeof obj1)
+		console.log(typeof obj2)
+		console.log(typeof obj3)
+	 */
+
+	/*
+	var obj = {};
+	obj.title = "Batman";
+	
+	console.log(obj.title);
+	 */
+	
+	/*
+	var obj = function(fn,ln){
+		this.fName = fn;
+		this.lName = ln
+	};
+	
+	var secondObject = new obj("bruce","wayne");
+	console.log(secondObject.fName);
+	 */
+	
+	
+	/*
+	var obj = {};
+	obj.title = "Batman";
+	obj.title = "Superman";
+	
+	console.log(obj.title);
+	 */
+	
+	/*
+	 * 
+	var obj = {
+		fName : "Vijay",
+		"_class" : "frontend training",
+		"training delivered": "html5",
+		"day15": new Date()
+	};
+	obj.city = "bangalore";
+	obj["company"] = "mindtree";
+	
+	console.log(obj.fName);
+	console.log(obj.class);
+	console.log(obj["training delivered"]);
+	console.log(obj.day15);
+	console.log(obj.city);
+	console.log(obj.company);
+	 */
+	//========================================================
+	/*
+	var dt = 12;
+	var obj = {
+		fName : "Vijay",
+		"_class" : "frontend training",
+		"training delivered": "html5",
+		"day15": new Date()
+	};
+	obj.city = "bangalore";
+	obj["company"] = "mindtree";
+	obj["days"+dt] = "today"
+	
+	console.log(obj.fName);
+	console.log(obj._class);
+	console.log(obj["training delivered"]);
+	console.log(obj.day15);
+	console.log(obj.city);
+	console.log(obj.company);
+	console.log(obj["days"+dt])
+	 */
+	
+	var obj = 	Object.create(null);
+				Object.defineProperty(obj,"city",{
+					configurable : true,
+					enumerable : true,
+					value : "Banglaore",
+					writable : false
+				});
+				
+	console.log(obj.city);
+	obj.city = "Bhubaneshwar";
+	console.log(obj.city);
+	
+	for (prop in obj){
+		console.log(prop);
+	}
+	
+	Object.defineProperty(obj,"city",{
+		configurable : true,
+		enumerable : true,
+		value : "Banglaore",
+		writable : true
+	});
+	console.log(obj.city);
+	obj.city = "Bhubaneshwar";
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

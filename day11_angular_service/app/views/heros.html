@@ -1,0 +1,25 @@
+<fieldset id="" class="">
+<legend>Search : <input type="text" ng-model="herofilter" /></legend>
+<table border="1" ng-cloak>
+	<tr>
+		<th ng-click="sortIt('id')">Sl #</th>
+		<th ng-click="sortIt('title')">Title</th>
+		<th ng-click="sortIt('city')">City</th>
+		<th ng-click="sortIt('movies')">Movies Acted</th>
+		<th ng-click="sortIt('photo')">Photo</th>
+		<th ng-click="sortIt('power')">Power</th>
+		<th>Show Movies</th>
+	</tr>
+	<tr data-ng-repeat="hero in heros | orderBy : sortBy : reverse | filter : {title : herofilter }">
+		<td><label>{{hero.id}}</label></td>
+		<td><label>{{hero.title}}</label></td>
+		<td><label>{{hero.city}}</label></td>
+		<td><label>{{hero.movies}}</label></td>
+		<td><img ng-src="{{hero.photo}}" width="40" align="absmiddle" /></td>
+		<td><label>{{hero.power}}</label></td>
+		<td><label><a href="#/movies/{{hero.id}}">Show Movies</a></label></td>
+	</tr>
+</table>
+</fieldset>
+
+

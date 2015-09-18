@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+var FirstModel = Backbone.Model.extend({
+	defaults : {
+		role : "superhero"
+	},
+	initialize : function(){
+		console.log("First Model was initialized");
+	},
+	validate : function(args){
+		if(args.power < 0){
+			return "Hero power can not be less than 0";
+		}else if(args.power > 10){
+			return "Hero power can not be more than 10";
+		}
+	}
+});
+var fm = new FirstModel({
+	title : "Batman",
+	fName : "Bruce",
+	lName : "Wayne",
+	power : 7
+});
+fm.set("city","Gothem");
+		
+//console.error(fm.get("title"));
+// console.warn(fm.get("fName"));
+// console.log(fm.get("lName"));
+// console.log(fm.get("role"));
+// console.log(fm.get("city"));
+// 
+// console.log(fm.hasChanged("title")) ;// false
+// fm.set("title","comic hero") ;// now lets change it
+// console.log(fm.hasChanged("title")); // true
+// fm.set("city","bhuvaneshwar") ;// change city too
+// console.log(fm.changed); // keeps track of the recent change returns an object with city : bhuvaneshwar
+// 
+// console.log(fm.previous("city")); // still remembers the old value
+// console.log(fm.previousAttributes()); // wont display changes done to defaults values
+
+// console.log(fm.keys());
+// console.log(fm.values());
+// console.log(fm.pairs());
+// console.log(fm.invert());
+// console.log(fm.pick("fName", "lName"));
+// console.log(fm.omit("fName", "lName"));
+	$(function(){
+		$("#inc").on("click", function(){
+			fm.set("power",fm.get("power")+1, {validate : true});
+			console.log(fm.get("power"));
+			console.log(fm.validationError);
+		});
+		$("#dec").on("click", function(){
+			fm.set("power",fm.get("power")-1, {validate : true});
+			console.log(fm.get("power"));
+			console.log(fm.validationError);
+		});
+	});
+	</script>
+</head>
+<body>
+	<button id="inc">Increase Power</button>
+	<button id="dec">Decrease Power</button>
+</body>
+</html>

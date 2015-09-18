@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Routers</title>
+	<script src="/lib/jquery.js"></script>
+	<script src="/lib/underscore.js"></script>
+	<script src="/lib/backbone.js"></script>
+	<script>
+		var MyRouter = Backbone.Router.extend({
+			routes : {
+					"productHome/*number" : "productFun",
+					"*someURL":"defaultFun" // works similar as "";
+				},
+				productFun : function(product) {
+					console.log("you are buying "+product);// #productHome/hello.jpg
+				},
+				defaultFun : function(someURL) {
+					console.log("sorry "+someURL+" was not found");// #someComment
+				}
+			});
+			var route = new MyRouter();
+			Backbone.history.start({pushState : true});
+			
+	</script>
+</head>
+<body>
+</body>
+</html>

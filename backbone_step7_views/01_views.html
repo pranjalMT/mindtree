@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MyView = Backbone.View.extend({});
+		var fView = new MyView({
+			tagName : "li",
+			className : "boxer"
+		});
+		$(function(){
+			// $("body").append(fView.el); // native javascript
+			// $("body").append(fView.$el); // jQuery 
+			
+			/*
+			var elm = fView.$el.css("border", "5px dotted blue");
+			$("body").append(elm); 
+			 */
+			
+			/* 
+			var elm = fView.el;
+				elm.setAttribute("style", "border : 5px dotted blue");
+			document.getElementsByTagName("body")[0].appendChild(elm);
+			 */
+			
+			var divBox = new MyView({
+				el:"#boxer"
+			});
+			divBox.$el.css("background-color","green").text("Changed").width(100).height(100);
+		})
+	</script>
+</head>
+<body>
+	<div id="boxer"> Hello there </div>
+</body>
+</html>

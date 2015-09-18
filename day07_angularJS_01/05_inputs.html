@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Color Picker</title>
+	<style>
+		h1{
+			width: 400px;
+			height: 100px;
+			line-height: 100px;
+			vertical-align: middle;
+			text-align: center;
+			font-family: arial;
+		}
+	</style>
+	<script src="lib/angular1.4.5.js"></script>
+</head>
+<body ng-app>
+	<h1 style="background-color: {{ngColor}}">Mindtree</h1>
+	<input type="color" ng-model="ngColor" />
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+	var title = "common guy";
+	var fName = "vijay";
+	var lName = "shivakumar";
+	
+	 var hero1 = {
+	 	title : "Batman",
+	 	fName : "Bruce",
+	 	lName : "Wayne"
+	 };
+	 var hero2 = {
+	 	title : "Spiderman",
+	 	fName : "Peter",
+	 	lName : "Parker"
+	 }
+	 var hero3 = {
+	 	title : "Ironman",
+	 	fName : "Tony",
+	 	lName : "Stark"
+	 };
+	 
+	 function fullName(title){
+	 	this.title = title;
+	 	return this.fName +" "+this.lName+" is called "+this.title;
+	 };
+	 
+	// console.log(fullName());
+	// console.log(fullName.call(hero1,"Comic Hero"));
+	// console.log(fullName.apply(hero1,["Comic Hero"]));
+	// console.log(fullName.apply());
+	// console.log(fullName.bind(hero3)("Movie Hero"))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

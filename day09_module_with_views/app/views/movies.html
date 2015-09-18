@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<h1>{{id}}</h1>
+<table  border="1">
+	<tr>
+		<td>Sl # </td>
+		<td>Movie Title</td>
+		<td>Movie Poster</td>
+	</tr>
+	<tr ng-repeat="movie in movies">
+		<td>{{movie.sl}}</td>
+		<td>{{movie.title}}</td>
+		<td><img ng-src="{{movie.poster}}" width="60" /></td>
+	</tr>
+</table>
+<button onclick="history.back()">Back</button>

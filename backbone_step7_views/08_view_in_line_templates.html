@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Views</title>
+	<style>
+		div{
+			background-color: orange;
+			width: 200px;
+			height: 200px;
+			padding:5px;
+			margin: auto;
+		}
+	</style>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MainModel = Backbone.Model.extend({});
+		var MainView = Backbone.View.extend({
+			tagName:"li",
+			render :function(){
+				// this.$el.html(this.model.get("uName"));
+				this.$el.html(this.template(this.model.toJSON()))
+				return this
+			},
+			initialize : function(){
+				this.render();
+			},
+			template : _.template("<%= uName %> | <%= uOccupation %> | <%= uCity %> | <%= uCompany %>")
+		})
+		
+		var subModel = new MainModel({
+			uName:"Batman",
+			uOccupation:"Social Service",
+			uCity:"Bhuvaneshwar",
+			uCompany:"Mindtree"
+		});
+		var subView = new MainView({
+			model:subModel
+		});
+		$(function(){
+			$("#uDisplay").append(subView.el);
+		});
+	</script>
+</head>
+<body>
+ 	<ul id="uDisplay"></ul>
+</body>
+</html>

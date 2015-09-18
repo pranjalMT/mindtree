@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		#container{
+			width: 800px;
+			height: 400px;
+			background-color: #333;
+		}
+		#container .box{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			float: left;
+			margin: 5px;
+		}
+	</style>
+	<script>
+	Function.prototype.addMethod = function(funName, fun){
+		this.prototype[funName] = fun;
+		return this
+	}
+	var Mindtree = function(){};
+
+		Mindtree
+		.addMethod("add",function(){
+			var elm = document.createElement("div");
+				elm.setAttribute("class","box");
+				document.getElementById("container").appendChild(elm);
+		})
+		.addMethod("del",function(){
+			var elm = document.getElementById("container").firstChild;
+				if(elm){
+					document.getElementById("container").removeChild(elm);
+				}else{
+					alert("nothing to remove");
+				};
+		});
+		
+		var mind = new Mindtree();
+		window.onload = function(){
+			document.getElementById("addBtn").addEventListener("click", mind.add);
+			document.getElementById("delBtn").addEventListener("click", mind.del);
+		};
+	</script>
+</head>
+<body>
+	<!--
+		button#addBtn{Add Box}+button#delBtn{Remove Box}+#container
+	-->
+	<button id="addBtn">Add Box</button>
+	<button id="delBtn">Remove Box</button>
+	<div id="container"></div>
+</body>
+</html>
