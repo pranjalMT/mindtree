@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var Hero = Backbone.Model.extend();
+		var HeroView = Backbone.View.extend({
+			events : {
+				"click": "clickHandler", // without the click .cm the event will happen on the entire view el
+				"click .sbtn": "secondBtnClickHandler"  // this event should happen only on the second button
+			},
+			clickHandler : function(evt){
+				console.log("event happened");
+			},
+			secondBtnClickHandler : function(evt){
+				evt.stopPropagation();	
+				console.log("second event happened"); // now the button listens to both the event so we call stop propagation
+			},
+			render : function(){
+				this.$el.html(this.model.get("title")+ "<button class='cm'>click me</button> <button class='sbtn'> second button </button>");
+				return this;
+			}
+		});
+		var hero = new Hero({title : "Batman"});
+		var heroView = new HeroView({
+			model : hero
+		})
+		$(function(){
+			$("body").append(heroView.render().el);
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

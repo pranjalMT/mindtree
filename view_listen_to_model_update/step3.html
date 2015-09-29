@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var Hero = Backbone.Model.extend({
+			defaults : {
+				power : 0,
+				city : "Bhuvaneshwar"
+			},
+			validate : function(args){
+				if(args.power < 0 || args.power > 10){
+					return "cant be less than 0 and cant be more than 10";
+				}
+			}
+		});
+		
+		var HeroView = Backbone.View.extend({
+			initialize : function(){
+				this.model.on("change:power",this.customModelUpdate, this); // type, listener, context (else this will be the model)
+			},
+			customModelUpdate : function(){
+				console.log("updated")
+				/*
+				 */
+				if(this.model.get("power") < 0 ){
+					this.$el.removeAttr("style").css("background-color","red");
+				}
+				if(this.model.get("power") > 2){
+					this.$el.removeAttr("style").css("background-color","yellow");
+				}
+				if(this.model.get("power") > 5){
+					this.$el.removeAttr("style").css("background-color","orange");
+				}
+				if(this.model.get("power") > 7){
+					this.$el.removeAttr("style").css("background-color","green");
+				}
+				if(this.model.get("power") > 10 ){
+					this.$el.removeAttr("style").css("background-color","red");
+				}
+				
+				this.$el.html("Title : "+this.model.get("title")+" Power : "+this.model.get("power"));
+			},
+			render : function(){
+				this.$el.html("Title : "+this.model.get("title")+" Power : "+this.model.get("power"));
+				return this;
+			}
+		});
+		
+		var hero = new Hero({title : "Batman"});
+		var heroView = new HeroView({model : hero});
+		//===============================================
+		$(function(){
+			$("body").append(heroView.render().$el);
+			//--------------------------------------
+			$("#ip").on("click",function(){
+				hero.set("power",hero.get("power")+1,{validate :true});
+				console.log(hero.get("power"));
+			});
+			$("#dp").on("click",function(){
+				hero.set("power",hero.get("power")-1,{validate :true});
+				console.log(hero.get("power"));
+			});
+			$("#cc").on("click",function(){
+				var cityList = ["Bangalore","Pune","Mumbai","Mangalore","Chennai","Hyderabad"];
+				var randCity = Math.round(Math.random()*cityList.length);
+				hero.set("city",cityList[randCity],{validate :true});
+				// console.log(hero.get("city"));
+			});
+		});
+	</script>
+</head>
+<body>
+	<button id="ip">Increase Power</button>
+	<button id="dp">Decrese Power</button>
+	<button id="cc">Change City</button>
+</body>
+</html>

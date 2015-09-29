@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var Hero = Backbone.Model.extend({
+			defaults : {
+				power : 0
+			}
+		});
+		
+		var HeroView = Backbone.View.extend({
+			initialize : function(){
+				this.model.on("change",this.render, this)
+			},
+			render : function(){
+				this.$el.html("Title : "+this.model.get("title")+" Power : "+this.model.get("power"));
+				return this;
+			}
+		});
+		
+		var hero = new Hero({title : "Batman"});
+		var heroView = new HeroView({model : hero});
+		//===============================================
+		$(function(){
+			$("body").append(heroView.render().$el);
+			//--------------------------------------
+			$("#ip").on("click",function(){
+				hero.set("power",hero.get("power")+1);
+				console.log(hero.get("power"));
+			});
+			$("#dp").on("click",function(){
+				hero.set("power",hero.get("power")-1);
+				console.log(hero.get("power"));
+			});
+		});
+	</script>
+</head>
+<body>
+	<button id="ip">Increase Power</button>
+	<button id="dp">Decrese Power</button>
+</body>
+</html>
